@@ -52,7 +52,7 @@ import { copyToClipboard } from "../utils";
 import Link from "next/link";
 import {
   Anthropic,
-  Azure,
+  // Azure,
   Baidu,
   Tencent,
   ByteDance,
@@ -743,61 +743,61 @@ export function Settings() {
     </>
   );
 
-  const azureConfigComponent = accessStore.provider ===
-    ServiceProvider.Azure && (
-    <>
-      <ListItem
-        title={Locale.Settings.Access.Azure.Endpoint.Title}
-        subTitle={
-          Locale.Settings.Access.Azure.Endpoint.SubTitle + Azure.ExampleEndpoint
-        }
-      >
-        <input
-          aria-label={Locale.Settings.Access.Azure.Endpoint.Title}
-          type="text"
-          value={accessStore.azureUrl}
-          placeholder={Azure.ExampleEndpoint}
-          onChange={(e) =>
-            accessStore.update(
-              (access) => (access.azureUrl = e.currentTarget.value),
-            )
-          }
-        ></input>
-      </ListItem>
-      <ListItem
-        title={Locale.Settings.Access.Azure.ApiKey.Title}
-        subTitle={Locale.Settings.Access.Azure.ApiKey.SubTitle}
-      >
-        <PasswordInput
-          aria-label={Locale.Settings.Access.Azure.ApiKey.Title}
-          value={accessStore.azureApiKey}
-          type="text"
-          placeholder={Locale.Settings.Access.Azure.ApiKey.Placeholder}
-          onChange={(e) => {
-            accessStore.update(
-              (access) => (access.azureApiKey = e.currentTarget.value),
-            );
-          }}
-        />
-      </ListItem>
-      <ListItem
-        title={Locale.Settings.Access.Azure.ApiVerion.Title}
-        subTitle={Locale.Settings.Access.Azure.ApiVerion.SubTitle}
-      >
-        <input
-          aria-label={Locale.Settings.Access.Azure.ApiVerion.Title}
-          type="text"
-          value={accessStore.azureApiVersion}
-          placeholder="2023-08-01-preview"
-          onChange={(e) =>
-            accessStore.update(
-              (access) => (access.azureApiVersion = e.currentTarget.value),
-            )
-          }
-        ></input>
-      </ListItem>
-    </>
-  );
+  // const azureConfigComponent = accessStore.provider ===
+  //   ServiceProvider.Azure && (
+  //   <>
+  //     <ListItem
+  //       title={Locale.Settings.Access.Azure.Endpoint.Title}
+  //       subTitle={
+  //         Locale.Settings.Access.Azure.Endpoint.SubTitle + Azure.ExampleEndpoint
+  //       }
+  //     >
+  //       <input
+  //         aria-label={Locale.Settings.Access.Azure.Endpoint.Title}
+  //         type="text"
+  //         value={accessStore.azureUrl}
+  //         placeholder={Azure.ExampleEndpoint}
+  //         onChange={(e) =>
+  //           accessStore.update(
+  //             (access) => (access.azureUrl = e.currentTarget.value),
+  //           )
+  //         }
+  //       ></input>
+  //     </ListItem>
+  //     <ListItem
+  //       title={Locale.Settings.Access.Azure.ApiKey.Title}
+  //       subTitle={Locale.Settings.Access.Azure.ApiKey.SubTitle}
+  //     >
+  //       <PasswordInput
+  //         aria-label={Locale.Settings.Access.Azure.ApiKey.Title}
+  //         value={accessStore.azureApiKey}
+  //         type="text"
+  //         placeholder={Locale.Settings.Access.Azure.ApiKey.Placeholder}
+  //         onChange={(e) => {
+  //           accessStore.update(
+  //             (access) => (access.azureApiKey = e.currentTarget.value),
+  //           );
+  //         }}
+  //       />
+  //     </ListItem>
+  //     <ListItem
+  //       title={Locale.Settings.Access.Azure.ApiVerion.Title}
+  //       subTitle={Locale.Settings.Access.Azure.ApiVerion.SubTitle}
+  //     >
+  //       <input
+  //         aria-label={Locale.Settings.Access.Azure.ApiVerion.Title}
+  //         type="text"
+  //         value={accessStore.azureApiVersion}
+  //         placeholder="2023-08-01-preview"
+  //         onChange={(e) =>
+  //           accessStore.update(
+  //             (access) => (access.azureApiVersion = e.currentTarget.value),
+  //           )
+  //         }
+  //       ></input>
+  //     </ListItem>
+  //   </>
+  // );
 
   const googleConfigComponent = accessStore.provider ===
     ServiceProvider.Google && (
@@ -1572,7 +1572,7 @@ export function Settings() {
                   </ListItem>
 
                   {openAIConfigComponent}
-                  {azureConfigComponent}
+
                   {googleConfigComponent}
                   {anthropicConfigComponent}
                   {baiduConfigComponent}
